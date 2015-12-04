@@ -31,6 +31,10 @@
 				break;
 			case "AjoutSousTheme":
 				echo "<h1>Formulaire AjoutSousTheme</h1>";
+				$sql = "INSERT INTO `succursale`.`sous_theme` (`ID_SOUS_THEME`,`ID_THEME`, `LIBELLE`, `CODE`,`DESCRIPTION`) VALUES (NULL,\"".$_POST['theme']."\",\"".$_POST['libel']."\",\"".$_POST['code']."\",\"".$_POST['descript']."\");";
+				echo $sql;
+				$req = mysql_query($sql) or die("Erreur SQL ".mysql_error());;
+				header("Location: ../gestion1.php");
 				break;
 			case "AjoutClient":
 				echo "<h1>Formulaire AjoutClient</h1>";
