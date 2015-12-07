@@ -102,7 +102,7 @@
             <li><a href="admin/modification_formateur.php">Modifier</a></li>
 		</ul>
 	</li> 
-	<li><a href="http://localhost/agenda/agenda/agenda.php?admin">Gestions du planning</a>
+	<li><a href="agenda/agenda.php?admin">Gestions du planning</a>
 		
 		</li>		
 	
