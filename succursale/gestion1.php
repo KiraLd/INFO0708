@@ -1,27 +1,4 @@
-<?php
-include('config/verif.php');
-if($_SESSION['connect'] == false) {
-?>
-	
-
-
-		
-
-		Acces denied
-			 <font color="red"></font></h2> 
-			
-		
-
-<?php
-}
-
-elseif($_SESSION['connect'] == true) 
-{
-?>
-
-
-
-<html lang="en">
+<html>
 
 <head>
 
@@ -30,23 +7,35 @@ elseif($_SESSION['connect'] == true)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Succursale</title>
-	<link rel="stylesheet" href="styles.css">
+	<?php
+		session_start();
+		if(isset($_SESSION['connect'])==false)
+		{
+			echo 'Cette page nécessite une Identification.<br><br><a href="index.php">Retour a la page d\'identification.</a>';
+			exit();
+		}
+		else if($_SESSION['grade']!='gestionnaire')
+		{
+			echo 'Vous ne possédez pas le grade nécessaire à l\'accès à cette page.<br><br><a href="index.php">Retour a la page d\'identification.</a>';
+			exit();
+		}
+	?>
+	<link rel="stylesheet" href="bootstrap/styles.css">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/creative.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,7 +62,7 @@ elseif($_SESSION['connect'] == true)
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav navbar-right">										
 											<li>
-		                                  <a href='index.php?deco=1'>déconnexion <?php echo " $login " ;?></a>
+		                                  <a href='config/deconnexion.php'>déconnexion <?php echo $_SESSION['login'] ;?></a>
 										</li> 
 										<li>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -82,43 +71,38 @@ elseif($_SESSION['connect'] == true)
 		
 	<form action="form.php" method="post" id="form1">
 	</form>
-	<ul id="menu">
+		<ul id="menu">
     <li>
 	<a href="">Gestion des salles</a>
 	<ul>
-			<li><button name="choix" type ="submit" form="form1" value="AjoutSalle">Ajouter</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="SuppressionSalle">Supprimer</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="ModificationSalle">Modifier</button></li>
+            <li><a href="admin/ajout_salle.php">Ajouter</a></li>
+            <li><a href="admin/suppression_salle.php">Supprimer</a></li>
+            <li><a href="admin/modification_salle.php">Modifier</a></li>
         </ul>
 		</li>
     <li>
         <a href="#">Gestion des formations</a>
         <ul>
-            <li><button name="choix" type ="submit" form="form1" value="AjoutFormation">Ajouter</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="SuppressionFormation">Supprimer</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="ModificationFormation">Modifier</button></li>
-        </ul>
-    </li>
-	<li>
-        <a href="#">Gestion des thèmes</a>
-        <ul>
-            <li><button name="choix" type ="submit" form="form1" value="AjoutTheme">Ajouter un thème</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="AjoutSousTheme">Ajouter un sous-thème</button></li>
+            <li><a href="admin/ajout_formation.php">Ajouter</a></li>
+            <li><a href="admin/suppression_formation.php">Supprimer</a></li>
+            <li><a href="admin/modification_formation.php">Modifier</a></li>
         </ul>
     </li>
     <li><a href="#">Gestion des clients</a>
 		<ul>
-            <li><button name="choix" type ="submit" form="form1" value="AjoutClient">Ajouter un client</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="SuppressionClient">Retirer un client</button></li>
+            <li><a href="admin/ajout_client.php">Ajouter</a></li>
+            <li><a href="admin/suppression_client.php">Supprimer</a></li>
+            <li><a href="admin/modification_client.php">Modifier</a></li>
         </ul>
 		</li>
     <li><a href="#">Gestions des formateurs</a>
 		<ul>
-		<li><button name="choix" type ="submit" form="form1" value="AjoutFormateur">Ajouter un formateur</button></li>
-			<li><button name="choix" type ="submit" form="form1" value="SuppressionFormateur">Retirer un formateur</button></li>
-		</li> 
+            <li><a href="admin/ajout_formateur.php">Ajouter</a></li>
+            <li><a href="admin/suppression_formateur.php">Supprimer</a></li>
+            <li><a href="admin/modification_formateur.php">Modifier</a></li>
 		</ul>
-	<li><a href="/agenda/agenda.php?admin">Gestions du planning</a>
+	</li> 
+	<li><a href="http://localhost/agenda/agenda/agenda.php?admin">Gestions du planning</a>
 		
 		</li>		
 	
@@ -139,20 +123,19 @@ elseif($_SESSION['connect'] == true)
 
     
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="bootstrap/js/jquery.easing.min.js"></script>
+    <script src="bootstrap/js/jquery.fittext.js"></script>
+    <script src="bootstrap/js/wow.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+    <script src="bootstrap/js/creative.js"></script>
 
 </body>
 
 </html>
-<?php } ?>

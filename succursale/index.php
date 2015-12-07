@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
@@ -12,18 +12,18 @@
     <title>Succursale</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/creative.css" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,19 +31,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<script language="javascript">
-
-
-</script>
 </head>
 
 <body id="page-top">
-
-<?php
-include('config/verif.php');
-
-
-?>
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -83,7 +73,7 @@ include('config/verif.php');
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-			<img src="img/formation.PNG" alt="sucursale" style="width:515px;height:266px;">
+			<img src="bootstrap/img/formation.PNG" alt="sucursale" style="width:515px;height:266px;">
                 <hr>
                 <p>Notre succursale vous offre de différents formations dans de multiples domaines</p>
 
@@ -159,7 +149,7 @@ XXX offre ses services dans presque toute l'Europe. La renommée de XXX repose s
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                       <form name="frmlgadmin" method="post" action="config/connect.php">
+                       <form method="post" action="config/connect.php">
 						
 <p>
 Identifiant &nbsp;&nbsp;&nbsp;&nbsp;<input class="bg-dark" name="util">
@@ -195,18 +185,18 @@ Mot de passe <input class="bg-dark" type="password" name="pass">
     </section>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="bootstrap/js/jquery.easing.min.js"></script>
+    <script src="bootstrap/js/jquery.fittext.js"></script>
+    <script src="bootstrap/js/wow.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+    <script src="bootstrap/js/creative.js"></script>
 
 </body>
 
